@@ -50,10 +50,13 @@ const pinkPrice = .55
 */
 
 // CODE HERE
+let totalAcres = 0;
 
-
-
-
+// Loop through all the elements from 3 arrays and add them to 'totalAcres' to find out total number of acres picked.
+for (let i = 0; i < 7; i++){
+    totalAcres = totalAcres + fujiAcres[i] + galaAcres[i] + pinkAcres[i]
+}
+console.log("Total acres : ",totalAcres)
 
 // PROBLEM 2
 
@@ -69,8 +72,9 @@ const pinkPrice = .55
 
 // CODE HERE
 
-
-
+//divided totalAcres by total number of days worked to find out avarage daily acres picked per day
+let averageDailyAcres = totalAcres / 21
+console.log("Average daily acres : ",averageDailyAcres)
 
 
 // PROBLEM 3
@@ -106,8 +110,14 @@ let acresLeft = 174
 let days = 0
 
 // CODE HERE
+//in the while loop Subtract 'averageDailyAcres' from 'acresLeft' until its value is greater than 0 to find out total number of days
+// required to finish remaining acres. Also increament days value by 1 everytime it loop executes.
 
-
+while (acresLeft > 0) {
+    days++;
+    acresLeft-=averageDailyAcres
+}
+console.log(`You will need ${days} more days to finish remaining 174 acre.`)
 
 // PROBLEM 4
 
@@ -132,14 +142,30 @@ let days = 0
     and use the push method to add new 
     values to the new arrays.
 */
+/*const fujiAcres = [2, 3, 3, 2, 2, 2, 1]
+const galaAcres = [5, 2, 4, 3, 6, 2, 4]
+const pinkAcres = [1, 5, 4, 2, 1, 5, 4]
+
+const fujiPrice = .89 
+const galaPrice = .64
+const pinkPrice = .55*/
 
 // CODE HERE
+//initialize empty array
+let fujiTons = []
+let galaTons = []
+let pinkTons = []
 
-// let fujiTons =
-// let galaTons =
-// let pinkTons =
+//As each acre yields 6.5 tons of apples so multiply every element in the above 3 array by 6.5 to find out the daily amount of apples picked, in tons, for each variety.
+for (let i = 0; i< 7; i++) {
+    fujiTons.push(fujiAcres[i] * 6.5)
+    galaTons.push(galaAcres[i] * 6.5)
+    pinkTons.push(pinkAcres[i] * 6.5)
 
-
+}
+console.log("Fuji apples in tons: ",fujiTons)
+console.log("Gala apples in tons: ",galaTons)
+console.log("Pink apples in tons: ",pinkTons)
 
 
 
@@ -161,13 +187,22 @@ let days = 0
 */
 
 // CODE HERE 
+//initialize variables assign 0 to each variable
+let fujiPounds = 0
+let galaPounds = 0
+let pinkPounds = 0
 
-// let fujiPounds =
-// let galaPounds =
-// let pinkPounds =
+//Loop throught each variety of array and add each element to get total in tons
+for (let i = 0; i < 7; i++){
+    fujiPounds += fujiTons[i]
+    galaPounds += galaTons[i]
+    pinkPounds += pinkTons[i]
+}
 
-
-
+//multiply by 2000 to convert in pounds
+console.log("fujiPounds : ",fujiPounds*2000)
+console.log("galaPounds : ",galaPounds*2000)
+console.log("pinkPounds : ",pinkPounds*2000)
 
 
 
@@ -189,10 +224,14 @@ let days = 0
 
 // CODE HERE
 
-// let fujiProfit =
-// let galaProfit =
-// let pinkProfit =
+//multiply total pounds of apples by given price per pound to find profit
+let fujiProfit = fujiPounds * fujiPrice
+let galaProfit = galaPounds * galaPrice
+let pinkProfit = pinkPounds * pinkPrice
 
+console.log("Total profit : $",fujiProfit)
+console.log("Total profit : $",galaProfit)
+console.log("Total profit : $",pinkProfit)
 
 
 
@@ -209,3 +248,7 @@ let days = 0
 */
 
 // CODE HERE
+
+//add profit of each variety get get total profit
+let totalProfit = fujiProfit + galaProfit + pinkProfit
+console.log("Total profit : $",totalProfit)

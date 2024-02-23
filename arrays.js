@@ -4,12 +4,12 @@
 const faveColors = ['red', 'green', 'black']
 
 //CODE HERE
-
+let colorCopy = faveColors.slice()
 //////////////////PROBLEM 2////////////////////
 /* Add a fourth color to the end of the 'colorCopy' array using the push method. */
 
 //CODE HERE
-
+colorCopy.push("white")
 //////////////////PROBLEM 3////////////////////
 /*
   Using an array method, create a new array called 'middleNums' from the 
@@ -20,7 +20,8 @@ const numbers = [1, 2, 3, 4, 5]
 
 //CODE HERE
 
-
+//used slice method to slice sub array(2, 3, 4) and assign it to 'middleNums'
+let middleNums=numbers.slice(1,4)
 //////////////////PROBLEM 4////////////////////
 /* 
   Create an empty array called 'answers'.
@@ -34,3 +35,12 @@ const numbers = [1, 2, 3, 4, 5]
 const bigOrSmallArray = [1, 99, 42, 69, 102, -10, 159, 352]
 
 // CODE HERE
+let answers = []
+//for loop will loop over the 'bigOrSmallArray' and for each elemnt it will check if the it is breater than or less than 100
+for (let i = 0; i < bigOrSmallArray.length; i++){
+  if (bigOrSmallArray[i] > 100) {
+    answers.push("big")
+  } else if (bigOrSmallArray[i] <= 100){
+    answers.push("small")
+  }
+}
